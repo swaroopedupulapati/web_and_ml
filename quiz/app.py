@@ -42,21 +42,6 @@ def register():
     else:
         return render_template('register.html')
 
-# for bits exam  
-
-# Load questions from CSV
-"""def load_questions():
-    questions = []
-    data = pd.read_csv('exam.csv', encoding='ISO-8859-1')
-    for _, row in data.iterrows():
-        questions.append({
-            'question': row['QUESTIONS'],
-            'choices': [f"A . {row['OPTION-A']}", f"B . {row['OPTION-B']}", f"C . {row['OPTION-C']}", f"D . {row['OPTION-D']}"],
-            'answer': row['CORRECT ANSWER']
-        })
-    global exam_questions
-    exam_questions=questions
-    return questions"""
 @app.route('/emcet')
 def emcet():
     #questions = load_questions()
@@ -95,7 +80,7 @@ def gate():
 def bank():
     #questions = load_questions()
     questions = []
-    data = pd.read_csv('exam.csv', encoding='ISO-8859-1')
+    data = pd.read_csv('exam3.csv', encoding='ISO-8859-1')
     for _, row in data.iterrows():
         questions.append({
             'question': row['QUESTIONS'],
@@ -112,7 +97,7 @@ def bank():
 def ssc():
     #questions = load_questions()
     questions = []
-    data = pd.read_csv('exam.csv', encoding='ISO-8859-1')
+    data = pd.read_csv('exam4.csv', encoding='ISO-8859-1')
     for _, row in data.iterrows():
         questions.append({
             'question': row['QUESTIONS'],
@@ -124,9 +109,6 @@ def ssc():
     # Select 20 random questions
     selected_questions = random.sample(questions, min(20, len(questions)))
     return render_template('quiz.html', questions=selected_questions)
-
-
-
 @app.route('/submit', methods=['POST',"GET"])
 def submit():
     global exam_questions
