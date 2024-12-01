@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 2rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #0056b3, #003f73);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Result</h1>
+        <p class="score">You scored {{ score }} out of 20</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: url('./static/image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Overlay to make the content readable */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+        }
+
+        /* Heading Styling */
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Form Container */
+        form {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            border-radius: 10px;
+            padding: 30px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Fieldset Styling */
+        fieldset {
+            border: 1px solid #3A506B;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: 500;
+            color: #3A506B;
+            font-size: 1.1rem;
+            padding: 0 10px;
+        }
+
+        /* Label and Input Styling */
+        label {
+            display: block;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        label:hover {
+            background-color: #f0f4f8;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+            accent-color: #3A506B;
+        }
+
+        /* Submit Button Styling */
+        button {
+            background-color: #3A506B;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background-color: #2b3e57;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay to make text readable on top of image -->
+    <div class="overlay"></div>
+
+    <!-- Quiz content -->
+    <div>
+        <h1>Online Quiz</h1>
+        <form action='/submit' method="post">
+            {% for question in questions %}
+                <fieldset>
+                    <legend>Question {{ loop.index }}: {{ question.question }}</legend>
+                    {% for choice in question.choices %}
+                        <label>
+                            <input type="radio" name="{{ question.question }}" value="{{ choice }}" required>
+                            {{ choice }}
+                        </label>
+                    {% endfor %}
+                </fieldset>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
