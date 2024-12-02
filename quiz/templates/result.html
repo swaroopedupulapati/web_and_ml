@@ -5,77 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Result</title>
     <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styling */
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #333;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
+            overflow: hidden;
         }
 
+        /* Container Styling */
+        .container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Heading Styling */
         h1 {
             color: #007BFF;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .score {
-            font-size: 2rem;
-            color: #333;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
+            margin-bottom: 20px;
+            animation: slideIn 1.2s ease-out;
         }
 
+        /* Score Styling */
+        .score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #333;
+            animation: scaleUp 1s ease-in-out;
+        }
+
+        /* Button/Link Styling */
         a {
+            display: inline-block;
             text-decoration: none;
             background: linear-gradient(135deg, #007BFF, #0056b3);
             color: white;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
 
         a:hover {
             background: linear-gradient(135deg, #0056b3, #003f73);
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .container {
-            background-color: white;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 100%;
-            max-width: 500px;
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Decorative Elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 5s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .decorative-circle.small {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 15%;
+        }
+
+        .decorative-circle.large {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            right: 20%;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Decorative Elements -->
+    <div class="decorative-circle small"></div>
+    <div class="decorative-circle large"></div>
+
+    <!-- Main Content -->
     <div class="container">
-        <h1>Quiz Result</h1>
+        <h1>Congratulations!</h1>
         <p class="score">You scored {{ score }} out of 20</p>
+        <a href="/">Retake Quiz</a>
     </div>
 </body>
 </html>
