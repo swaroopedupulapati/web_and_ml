@@ -1,0 +1,185 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6e7c7c, #2c3e50);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ff6f61;
+        }
+
+        /* Styling the image feed */
+        img {
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Add a smooth animation effect to the text */
+        h1 {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Emotion Recognition</h1>
+    <img src="{{ url_for('video_feed') }}" style="width: 30%; height: 30%;">
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6e7c7c, #2c3e50);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Prevent overflow of animated emojis */
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ff6f61;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Styling the image feed */
+        img {
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animation for fade-in text */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Add floating emoji background */
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Animation for emojis */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-50px) rotate(10deg);
+            }
+            50% {
+                transform: translateY(0) rotate(-10deg);
+            }
+            75% {
+                transform: translateY(50px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        /* More styling to randomize position of emojis */
+        .emoji:nth-child(odd) {
+            font-size: 3rem;
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .emoji:nth-child(even) {
+            font-size: 4rem;
+            right: 15%;
+            animation-duration: 10s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Emotion Recognition</h1>
+    <img src="{{ url_for('video_feed') }}" style="width: 60%; height: 60%;">
+    
+    <!-- Adding emoji background elements -->
+    <div class="emoji">😊</div>
+    <div class="emoji">😍</div>
+    <div class="emoji">😎</div>
+    <div class="emoji">🤩</div>
+    <div class="emoji">😜</div>
+    <div class="emoji">😅</div>
+    <div class="emoji">🤔</div>
+    <div class="emoji">😆</div>
+</body>
+</html>
