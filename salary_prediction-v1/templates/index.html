@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .salary {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 16px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        select{
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        button:active {
+            background-color: #1f618d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="salary">
+        <h1>Salary Predictions</h1>
+        <h3>{{salary}}</h4>
+        <form action="/" method="post">
+            {% for item, values in data.items() %}
+                <h4>select {{ item }}</h4>
+                <select name="{{ item }}" >
+                    <option value="" disabled selected>Select the {{ item }}</option>
+                    {% for i in values %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            {% endfor %}<br>
+            <h4>Enter Years of Experience</h4>
+            <input type="text" name="exp" placeholder="Enter years of experience"><br><br>
+            <button type="submit" >predict</button>
+        </form>
+        
+    </div>
+</body>
+</html>
