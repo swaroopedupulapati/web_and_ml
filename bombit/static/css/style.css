@@ -1,0 +1,45 @@
+body{
+    background-color: black;
+    background-image: url(../images/hacker.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.first-div{
+    float: left;
+    width: 50%;
+    border: 2px solid aliceblue;
+    margin: 15% 0% 0% 2%;
+}
+
+.first-div img{
+    float: left;
+    width: 40%;
+    height: 200px;
+    /* margin: 0% 20% 0% 0%; */
+}
+
+.first-div input{
+    float: left;
+    width: 50%;
+    padding: 0.5% 0% 0.5% 0%;
+    margin: 5% 0% 0% 5%;
+    font-size: 30px;
+    text-align: center;
+    background-color: rgba(52, 50, 50, 0.529);
+    border: 1px solid grey;
+    font-weight: 800;
+    color: aliceblue;
+}
+
+.first-div button{
+    float: left;
+    width: 30%;
+    font-size: 30px;
+    margin: 2% 0% 0% 15%;
+    background-color: transparent;
+    border: 2px solid grey;
+    color: grey;
+    font-weight: 800;
+
+}
